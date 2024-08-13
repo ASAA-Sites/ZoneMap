@@ -247,10 +247,9 @@ textarea {
   }
 }
 
-
 .zoneContainer {
   padding: 1vh;
-  background-color: #b3d4fc;
+  background-color: #212d65;
   height: 90%;
   width: auto
 }
@@ -259,6 +258,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 70%;
 }
 
