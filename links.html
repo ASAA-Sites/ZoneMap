@@ -62,7 +62,11 @@
     console.log(links[i])
     let l = document.createElement("a")
     l.href = links[i].link
+
     l.innerHTML = links[i].name
+    l.target = "_blank"
+    l.rel = "noopener noreferrer"
+
     linkContainer.appendChild(l)
   }
 
