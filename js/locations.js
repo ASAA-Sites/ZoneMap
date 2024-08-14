@@ -5,7 +5,7 @@ let locations = {
     "Edmonton" :      [ {"link" : "http://metroathletics.ca", "name" : "Metro Website"}],
     "Central" :       [],
     "South Central" : [{"link" : "https://southcentralzone.com/", "name" : "South Central Website"}],
-    "Calgary" :       [],
+    "Calgary" :       [{"link" : "http://calgaryhighschoolsports.ca/", "name" : "CSHSAA Website"}, {"link" : "https://www.leaguelineup.com/welcome.asp?url=isaasr", "name" : "CISAA Website"}],
     "South" :         [
         {"link" : "https://saiac.schoolsites.ca/", "name" : "SAIAC Website"}, 
         {"link" : "https://sites.google.com/view/sebcbasketball/home", "name" : "SEBC Website"}, 
