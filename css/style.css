@@ -248,10 +248,12 @@ textarea {
 }
 
 .zoneContainer {
+  pointer-events: none;
   padding: 1vh;
   background-color: #212d65;
   height: 90%;
-  width: auto
+  width: auto;
+  filter: blur(3px)
 }
 
 body {
@@ -301,3 +303,38 @@ body {
     opacity: 0;
   }
 }
+
+
+.circle {
+  z-index: 999999999999;
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 10px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #212d65;
+  border-left-color: #f9cf08;
+  border-right-color: #f9cf08;
+  border-bottom-color: #212d65;
+  animation: spin 1s infinite linear;
+}
+
+.container {
+  z-index: 9999999999999999;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 25%;
+  height: 140px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@keyframes spin { 
+  100% { 
+    transform: rotate(360deg); 
+  } 
+} 
