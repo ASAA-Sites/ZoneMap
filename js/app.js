@@ -1,4 +1,25 @@
-import locations from "./locations.js";
+const searchParams = new URLSearchParams(window.location.search);
+
+let route = searchParams.get("category")
+
+let currentLocation = route ? route : "General"
+
+let linkdata = []
+let dataLoaded = false;
+
+let url = `https://script.google.com/macros/s/AKfycbymCJtUEcwge-CrsY90aMEpTXfaiKZHjD84SiuLc4lnB7ZmK7RzChbtteyK4XC-SSWu/exec?path=Data`;
+fetch(url)
+.then((response) => response.json())
+.then(json => {
+    linkdata = json;
+    dataLoaded = true;
+    console.log(linkdata)
+    $('.container').css("display", "none")
+    $('.zoneContainer').css("filter", "none").css("pointer-events", "auto")
+
+    
+});
+
 
 $(document).ready(function(e) {
     $('img[usemap]').rwdImageMaps();
@@ -9,13 +30,13 @@ $('area').on('click', function(e) {
             return false;
 });
 
-
 function redirect(link) {
     window.open(link)
 }
 
 function openList(element, e) {
-    let links = locations[$(element).attr('title')]
+    let links = linkdata.filter(a => a.Zone == $(element).attr('title') && a.Category == currentLocation)
+    console.log(links.length)
     let tooltip = document.getElementById("tooltip")
 
     $(element).on("mouseleave", function(e) {
@@ -27,13 +48,12 @@ function openList(element, e) {
     })
 
     $(tooltip).on("mouseleave", function() {
-       tooltip.style.animation = 'out 0.25s linear forwards'
-       setTimeout(() => {
+    tooltip.style.animation = 'out 0.25s linear forwards'
+    setTimeout(() => {
         tooltip.style.top = '15000000px'
         tooltip.right = '15000000px'
         }, "250");  
     })
-
 
     tooltip.innerHTML = '';
     tooltip.style.opacity = 0;
@@ -43,12 +63,12 @@ function openList(element, e) {
     if(links.length > 0) {
         for(let i = 0; i < links.length; i++) {
             let l = document.createElement("a")
-            l.href = links[i].link
-          
-            l.innerHTML = links[i].name
+            l.href = links[i].Link
+        
+            l.innerHTML = links[i]["Display Name"]
             l.target = "_blank"
             l.rel = "noopener noreferrer"
-          
+        
             tooltip.appendChild(l)
         }
     } else if (links.length == 0) {

@@ -14,8 +14,6 @@
   <meta property="og:image" content="">
   <meta property="og:image:alt" content="">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
   <link rel="manifest" href="site.webmanifest">
@@ -29,8 +27,17 @@
 </head>
 
 <body>
+
+ 
+
   <div id="tooltip"></div>
-    <h2>Click on a Zone to Learn More</h2>
+
+  <div class="container">
+    <div style="position: absolute; z-index: 9999999999999; font-size: 0.8em; color: white;">Loading...</div>
+    <div class="circle"></div>
+  </div>
+
+  <h2>Click on a Zone to Learn More</h2>
    <div class="zoneContainer">
     <img src="img/map_alberta zones_2019-1.png" alt="Zone_Map" usemap="#workmap" width="1700" height="2200">
     <map name="workmap">
