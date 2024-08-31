@@ -13,11 +13,8 @@ fetch(url)
 .then(json => {
     linkdata = json;
     dataLoaded = true;
-    console.log(linkdata)
     $('.container').css("display", "none")
     $('.zoneContainer').css("filter", "none").css("pointer-events", "auto")
-
-    
 });
 
 
